@@ -1,11 +1,15 @@
 package annotation.custom;
 
+import annotation.custom.annotation.YearRange;
+
 public class Car {
 
     private final String model;
-    private final String year;
+    // 2000 ~ 2025 내 차량만 정상인걸로
+    @YearRange(min = 2000, max = 2025)
+    private final Integer year;
 
-    public Car(String model, String year) {
+    public Car(String model, Integer year) {
         this.model = model;
         this.year = year;
     }
@@ -14,7 +18,7 @@ public class Car {
         return model;
     }
 
-    public String getYear() {
+    public Integer getYear() {
         return year;
     }
 
