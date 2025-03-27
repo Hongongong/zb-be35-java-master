@@ -4,6 +4,8 @@ import annotation.custom.annotation.ModelDescriptionPrint;
 import annotation.custom.annotation.ModelDescriptionPrints;
 import annotation.custom.annotation.YearRange;
 
+import java.time.LocalDate;
+
 public class Car {
 
     private final String model;
@@ -49,6 +51,17 @@ public class Car {
 
     public Integer getYear() {
         return year;
+    }
+
+    // 생산된지 5년이 넘었으면 정비가 필요
+    // private 메소드로 만들어서 테스트 코드에서 호출
+    private boolean isNeedMaintenance() {
+        return LocalDate.of(year, 1, 1).isBefore(LocalDate.now().minusYears(5));
+    }
+
+    // oil 교체는 1개월마다 해야함
+    public boolean isNeedChangeOil() {
+        return LocalDate.of(year, 1, 1).isBefore(LocalDate.now().minusYears(1));
     }
 
     @Override
