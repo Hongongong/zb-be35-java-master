@@ -6,11 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD) // Filed 타입 타겟
-public @interface YearRange {
+@Target(ElementType.METHOD) // Method 타입 타겟
+public @interface ModelDescriptionPrints {
 
-    int min();
-
-    int max();
+    ModelDescriptionPrint[] value();
 
 }
