@@ -9,7 +9,9 @@ public class Calculator {
         this.b = b;
     }
 
-    public int calculate(Operate operate) {
-        return operate.operate(a, b);
+
+    public int calculate(Operate operae) {
+        return operae.operate(a, b);
     }
+
 }
